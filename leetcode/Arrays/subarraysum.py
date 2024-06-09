@@ -1,17 +1,17 @@
 class Solution:
     def checkSubarraySum(self, nums, k):
-        prefix_mod = 0
-        mod_seen = {0: -1}
+        count = 0
+        for x in range(len(nums)):
+            print("x: ", x)
+            for y in range(x+1,len(nums)+1):
+                print(nums[x:y])
+                s = sum(nums[x:y])
+                if s % k == 0:
+                    count += 1
 
-        for i in range(len(nums)):
-            prefix_mod = (prefix_mod + nums[i]) % k
+        return count
 
-            if prefix_mod in mod_seen:
-                # ensures that the size of subarray is at least 2
-                if i - mod_seen[prefix_mod] > 1:
-                    return True
-            else:
-                # mark the value of prefix_mod with the current index.
-                mod_seen[prefix_mod] = i
 
-        return False
+
+sol = Solution()
+print(sol.checkSubarraySum([23, 2, 4, 6, 7], 6))

@@ -1,17 +1,17 @@
 class Solution:
-    def checkSubarraySum(self, nums, k):
+    def subarraysDivByK(self, nums: list[int], k: int) -> int:
+        rem = {0: 1}
+        cum_sum = 0
         count = 0
-        for x in range(len(nums)):
-            print("x: ", x)
-            for y in range(x+1,len(nums)+1):
-                print(nums[x:y])
-                s = sum(nums[x:y])
-                if s % k == 0:
-                    count += 1
 
+        for i in range(len(nums)):
+            cum_sum = (cum_sum + nums[i]) % k
+            if cum_sum < 0:
+                cum_sum += k
+
+            if cum_sum in rem:
+                count += rem[cum_sum]
+                rem[cum_sum] += 1
+            else:
+                rem[cum_sum] = 1
         return count
-
-
-
-sol = Solution()
-print(sol.checkSubarraySum([23, 2, 4, 6, 7], 6))

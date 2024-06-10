@@ -12,7 +12,7 @@ class Solution:
             i += 1
         return count == groupSize
 
-    def isNStraightHand(self, hand: List[int], groupSize: int) -> bool:
+    def isNStraightHand(self, hand: list[int], groupSize: int) -> bool:
         n = len(hand)
         if n % groupSize != 0:
             return False

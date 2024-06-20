@@ -1,5 +1,5 @@
 class Solution:
-    def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
+    def maxProfitAssignment(self, difficulty: list[int], profit: list[int], worker: list[int]) -> int:
         hashmap = sorted(zip(difficulty, profit))
 
         worker.sort()

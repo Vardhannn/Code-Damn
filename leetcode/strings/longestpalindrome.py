@@ -14,3 +14,4 @@ class Solution:
     
 sol = Solution()
 print(sol.longestPalindrome("a")) # 7
+    
